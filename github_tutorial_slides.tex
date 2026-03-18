@@ -815,8 +815,6 @@ Other platforms: GitLab, Bitbucket, Azure DevOps --- same Git commands, differen
 # SSH (recommended)
 git remote add origin git@github.com:USER/ie-supply-chain.git
 
-# HTTPS
-git remote add origin https://github.com/USER/ie-supply-chain.git
 \end{lstlisting}
 
 \textbf{First push:}
@@ -838,8 +836,6 @@ git push -u origin main
 # SSH
 git clone git@github.com:USERNAME/REPOSITORY.git
 
-# HTTPS
-git clone https://github.com/USERNAME/REPOSITORY.git
 \end{lstlisting}
 
 \desktoptip{File $\rightarrow$ Clone Repository $\rightarrow$ paste URL or pick from your GitHub repos list $\rightarrow$ Clone.}
@@ -1057,6 +1053,7 @@ Hello from Branch A
 \small VS Code shows ``Accept Current'', ``Accept Incoming'', ``Accept Both'' buttons.
 \end{frame}
 
+\iffalse
 % ── Branch Naming Conventions ──
 \begin{frame}
 \frametitle{4.6 Branch Naming Conventions}
@@ -1086,6 +1083,7 @@ Examples:
     \item \texttt{docs/update-process-docs}
 \end{itemize}
 \end{frame}
+\fi
 
 % ── Git Flow Lite ──
 \begin{frame}
@@ -1496,7 +1494,7 @@ git add .gitattributes
 \end{lstlisting}
 
 \begin{block}{Pro Tip}
-Add a pre-commit hook to \textbf{automatically block} large files --- see the FAQ slides.
+Add a pre-commit hook to \textbf{automatically block} large files before committing.
 \end{block}
 \end{frame}
 
@@ -1722,7 +1720,7 @@ git remote add origin <url>
 git push --force
 \end{lstlisting}
 
-\textbf{Prevention:} add a pre-commit hook (see FAQ~5).
+\textbf{Prevention:} add a pre-commit hook to block large files before committing.
 \end{frame}
 
 % ── FAQ 2: Undo last commit ──
