@@ -1,22 +1,27 @@
-\frametitle{3.5 Pulling Changes}
+\frametitle{Git Cheat Sheet (2/2)}
 
-\textbf{Command Line:}
-\begin{lstlisting}[language=bash]
-git pull        # fetch + merge in one step
-git push        # share your changes
+\scriptsize
+\textbf{Remotes:}
+\begin{lstlisting}[basicstyle=\ttfamily\tiny]
+git remote add origin <url>    git push -u origin main
+git push                       git pull
 \end{lstlisting}
 
-\desktoptip{Click \textbf{Fetch Origin} (top bar) to check for updates, then \textbf{Pull Origin} to download them. Click \textbf{Push Origin} to upload your commits.}
+\textbf{Undoing:}
+\begin{lstlisting}[basicstyle=\ttfamily\tiny]
+git restore <file>               git restore --staged <file>
+git commit --amend               git reset --soft HEAD~1
+\end{lstlisting}
 
-\vspace{2mm}
-\textbf{The Push/Pull Workflow:}
-\begin{enumerate}
-    \item Make changes locally
-    \item \texttt{git pull} \hfill $\leftarrow$ get latest first
-    \item \texttt{git add .} \& \texttt{git commit -m "description"}
-    \item \texttt{git push} \hfill $\leftarrow$ share your changes
-\end{enumerate}
+\textbf{Stash \& Tags:}
+\begin{lstlisting}[basicstyle=\ttfamily\tiny]
+git stash                    git stash pop
+git tag -a v1.0.0 -m "msg"    git push origin --tags
+\end{lstlisting}
 
-% \begin{block}{Golden Rule}
-\textcolor{red}{Always \texttt{pull} before you \texttt{push} to minimize merge conflicts.}
-% \end{block}
+\textbf{Complete Workflow:}
+\begin{lstlisting}[basicstyle=\ttfamily\tiny]
+git switch -c feature/work    # 1. Branch
+git add . && git commit -m "msg"  # 2. Commit
+git push -u origin feature/...    # 3. Push
+\end{lstlisting}
